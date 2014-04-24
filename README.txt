@@ -1,6 +1,6 @@
 Elgg Loginrequired plugin for Elgg 1.9
-Latest Version: 1.9.3
-Released: 2013-09-17
+Latest Version: 1.9.4
+Released: 2014-04-24
 Contact: iionly@gmx.de
 License: GNU General Public License version 2
 Copyright: (c) iionly, Khaled Afiouni
@@ -12,7 +12,7 @@ What this plugin does:
 - No direct access to any site urls for non-logged-in visitors is possible with the exception of the pages explicitly allowed (login, registration, lost-password, external pages),
 - When not logged in to the site only the login widget is displayed,
 - It checks Elgg's walled-garden plugin hook for public pages,
-- In addition it introduces it's own plugin hook to define public pages, i.e. the plugin hook defined in Khaled Afiouni's plugin can still be used in Elgg 1.8 with this plugin.
+- In addition it introduces it's own plugin hook to define public pages, i.e. the plugin hook defined in Khaled Afiouni's plugin can still be used in Elgg 1.8+1.9 with this plugin.
   Check the function login_required_default_allowed_list in start.php to see how you can define public pages in your plugins or add more pages to be viewable by not-logged-in users via this plugin.
 
 
@@ -31,6 +31,17 @@ If you want to change the layout of the login page look at the file loginrequire
 
 
 Changelog:
+
+1.9.4:
+
+- Changes of version 1.8.4 ported to Elgg 1.9 version.
+
+
+1.8.4:
+
+- Added "/login" page to allowed pages to avoid a possible redirect loop,
+- Code cleanup.
+
 
 1.9.3:
 
