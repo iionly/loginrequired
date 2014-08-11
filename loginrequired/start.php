@@ -5,7 +5,7 @@
  * @package LogInRequired
  * @license http://www.opensource.org/licenses/gpl-license.php
  * @author Khaled Afiouni
- * @copyright skinju.com 2010-2013
+ * @copyright skinju.com 2010-2014
  * @link http://skinju.com/
  *
  * Upgraded to Elgg 1.8+1.9 by iionly, (c) iionly 2011-2014
@@ -14,6 +14,12 @@
 elgg_register_event_handler('init','system','loginrequired_init');
 
 function loginrequired_init() {
+
+	if ($CONFIG->default_access == ACCESS_PUBLIC) {
+		$CONFIG->default_access = ACCESS_LOGGED_IN;
+	}
+	elgg_register_plugin_hook_handler('access:collections:write', 'all', 'loginrequired_remove_public_access', 9999);
+
 	// No need to do all the checking below if the user is already logged in... performance is key :)
 	if (elgg_is_logged_in()) {
 		return;
@@ -114,4 +120,12 @@ function loginrequired_index() {
 
 	// return true to signify that we have handled the front page
 	return true;
+}
+
+// Remove public access
+function loginrequired_remove_public_access($hook, $type, $accesses) {
+	if (isset($accesses[ACCESS_PUBLIC])) {
+		unset($accesses[ACCESS_PUBLIC]);
+	}
+	return $accesses;
 }

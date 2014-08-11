@@ -1,6 +1,6 @@
 Elgg Loginrequired plugin for Elgg 1.9
-Latest Version: 1.9.4
-Released: 2014-04-24
+Latest Version: 1.9.5
+Released: 2014-08-11
 Contact: iionly@gmx.de
 License: GNU General Public License version 2
 Copyright: (c) iionly, Khaled Afiouni
@@ -31,6 +31,18 @@ If you want to change the layout of the login page look at the file loginrequire
 
 
 Changelog:
+
+1.9.5:
+
+- Changes of version 1.8.5 ported to Elgg 1.9 version.
+
+
+1.8.5:
+
+- Change site's default access level to "logged-in" in case it's "public",
+- Remove "public" option from access level selection when creating / editing content,
+- Remove "public" option from visibility selection on group edit page.
+
 
 1.9.4:
 
