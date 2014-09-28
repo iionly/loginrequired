@@ -1,6 +1,6 @@
-Elgg Loginrequired plugin for Elgg 1.9
-Latest Version: 1.9.5
-Released: 2014-08-11
+Loginrequired plugin for Elgg 1.9
+Latest Version: 1.9.6
+Released: 2014-09-28
 Contact: iionly@gmx.de
 License: GNU General Public License version 2
 Copyright: (c) iionly, Khaled Afiouni
@@ -31,6 +31,18 @@ If you want to change the layout of the login page look at the file loginrequire
 
 
 Changelog:
+
+1.9.6:
+
+- Changes of version 1.8.6 ported to Elgg 1.9 version.
+
+
+1.8.6:
+
+- Fix in loginrequired_index() function parameter name to match variable name later used (though this error shouldn't have mattered as the loginrequired index page should be served with highest priority anyway),
+- The pages allowed to be visited when logged out by default by the Loginrequired plugin now include all pages also defined as public pages by Elgg's walled_garden mode (almost all apart from some specific pages were already included anyway),
+- Some minor code cleanup.
+
 
 1.9.5:
 

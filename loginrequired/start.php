@@ -15,6 +15,10 @@ elgg_register_event_handler('init','system','loginrequired_init');
 
 function loginrequired_init() {
 
+	global $CONFIG;
+
+	elgg_extend_view('css/elgg', 'loginrequired/css');
+
 	if ($CONFIG->default_access == ACCESS_PUBLIC) {
 		$CONFIG->default_access = ACCESS_LOGGED_IN;
 	}
@@ -24,8 +28,6 @@ function loginrequired_init() {
 	if (elgg_is_logged_in()) {
 		return;
 	}
-
-	elgg_extend_view('css/elgg', 'loginrequired/css');
 
 	elgg_unextend_view('page/elements/header', 'search/header');
 
@@ -52,22 +54,22 @@ function loginrequired_init() {
 	$allow = array();
 	// Allow should have pages
 	$allow[] = '_graphics';
+	$allow[] = 'walled_garden/.*';
+	$allow[] = 'action/.*';
 	$allow[] = 'login';
-	$allow[] = 'action/login';
 	$allow[] = 'register';
-	$allow[] = 'action/register';
 	$allow[] = 'forgotpassword';
-	$allow[] = 'resetpassword';
-	$allow[] = 'action/user/requestnewpassword';
-	$allow[] = 'action/user/passwordreset';
-	$allow[] = 'action/security/refreshtoken';
+	$allow[] = 'changepassword';
+	$allow[] = 'refresh_token';
 	$allow[] = 'ajax/view/js/languages';
 	$allow[] = 'upgrade\.php';
 	$allow[] = 'xml-rpc\.php';
 	$allow[] = 'mt/mt-xmlrpc\.cgi';
 	$allow[] = 'css/.*';
 	$allow[] = 'js/.*';
-	$allow[] = 'cache/.*';
+	$allow[] = 'cache/[0-9]+/\w+/js|css/.*';
+	$allow[] = 'cron/.*';
+	$allow[] = 'services/.*';
 
 	// Allow other plugin developers to edit the array values
 	$add_allow = elgg_trigger_plugin_hook('login_required','login_required');
@@ -78,7 +80,7 @@ function loginrequired_init() {
 	}
 
 	// Any public_pages defined via Elgg's walled garden plugin hook?
-	$plugins = elgg_trigger_plugin_hook('public_pages', 'walled_garden', NULL, array());
+	$plugins = elgg_trigger_plugin_hook('public_pages', 'walled_garden', null, array());
 
 	// If more URL's are added... merge both with original list
 	if (is_array($plugins)) {
@@ -101,10 +103,16 @@ function suppress_aalborg_theme_navbar($hook, $type, $return_value, $params) {
 }
 
 // Add more allowed URL's...
-function login_required_default_allowed_list($hook, $type, $returnvalue, $params) {
+function login_required_default_allowed_list($hook, $type, $return, $params) {
 
-	// If externalpages plugin is active allow access to its pages
-	$add = array();
+	if (is_array($return)) {
+		$add = $return;
+	} else {
+		$add = array();
+	}
+
+	// Example: here the pages for the externalpages plugin are added to allow access to its pages
+	// Other pages can be added likewise
 	$add[] = 'terms';
 	$add[] = 'privacy';
 	$add[] = 'about';
