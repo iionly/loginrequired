@@ -1,8 +1,8 @@
-Loginrequired plugin for Elgg 1.9 - 1.11
-========================================
+Loginrequired plugin for Elgg 1.9 - 1.12 and Elgg 2.X
+=====================================================
 
-Latest Version: 1.9.7  
-Released: 2015-06-13  
+Latest Version: 1.9.8  
+Released: 2015-09-16  
 Contact: iionly@gmx.de  
 License: GNU General Public License version 2  
 Copyright: (c) iionly, Khaled Afiouni
@@ -23,8 +23,9 @@ ATTENTION: If using this plugin, please don't enable the walled-garden option on
 Installation
 ------------
 
-1. Copy the loginrequired plugin folder into you mod folder,
-2. Make sure that in Advanced Settings the Elgg default walled-garden option is disabled,
-3. Enable the loginrequired plugin in the admin section of your.
+1. If you have any previous version of the Loginrequired plugin installed, remove the loginrequired folder from the mod directory before copying/extracting the new version on your server,
+2. Copy the loginrequired plugin folder into you mod folder,
+3. Make sure that in Advanced Settings the Elgg default walled-garden option is disabled,
+4. Enable the loginrequired plugin in the admin section of your.
 
 If you want to change the layout of the login page look at the file loginrequired/views/default/page/layouts/loginrequired_index_example.php. This is an alternative for loginrequired_index.php. The example loginrequired_index_example.php includes a right column with a widget, some text in the widget and an image shown in the widget. You can modify loginrequired_index_example.php according to your needs and then replace loginrequired_index.php with your version.

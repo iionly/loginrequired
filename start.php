@@ -60,11 +60,13 @@ function loginrequired_init() {
 	$allow[] = 'changepassword';
 	$allow[] = 'refresh_token';
 	$allow[] = 'ajax/view/js/languages';
+	$allow[] = 'ajax/view/languages.js';
 	$allow[] = 'upgrade\.php';
 	$allow[] = 'xml-rpc\.php';
 	$allow[] = 'mt/mt-xmlrpc\.cgi';
 	$allow[] = 'css/.*';
 	$allow[] = 'js/.*';
+	$allow[] = 'cache/[0-9]+/\w+/.*';
 	$allow[] = 'cache/[0-9]+/\w+/js|css/.*';
 	$allow[] = 'cron/.*';
 	$allow[] = 'services/.*';

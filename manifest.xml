@@ -3,7 +3,7 @@
 	<name>Login Required</name>
 	<id>loginrequired</id>
 	<author>iionly (for Elgg 1.8 and newer) / Khaled Afiouni</author>
-	<version>1.9.7</version>
+	<version>1.9.8</version>
 	<category>enhancement</category>
 	<description>Requires site visitors to be logged in to view the site. The only pages accessible without being logged in are the starting page, registration and forgotten password pages and the external pages (About, Terms, Privacy).</description>
 	<website>https://github.com/iionly/</website>

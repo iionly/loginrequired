@@ -1,6 +1,12 @@
 Changelog
 =========
 
+1.9.8
+-----
+
+- Adjustments in default allowed pages for Loginrequired to work both on Elgg 1.9 - 1.12 and Elgg 2.0 (therefore should work on any Elgg 2.X version),
+- composer.json added to allow for composer based installs.
+
 1.9.7
 -----
 
